@@ -1,0 +1,11 @@
+ErrorDocument 404 /index.php
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^Dog-CBD$ products.php?prodid=1 [L]
+RewriteRule ^CBD-Shampoo$ products.php?prodid=2 [L]
+RewriteRule ^Joint-Supplements$ products.php?prodid=4 [L]
+#Protect Directory
+AuthName "Work in Progress"
+AuthType Basic
+AuthUserFile /home/mmaaaco/domains/mm214.com/public_html/mesacart/.htpasswd
+Require valid-user

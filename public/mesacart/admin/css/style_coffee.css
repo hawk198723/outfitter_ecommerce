@@ -1,0 +1,65 @@
+body {
+	background-color:#efefe7;
+	background-image:url('http://www.mm214.com/sweber/wdm3321/Religion/admin/images/bg-body.gif');
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+#sidebar {
+	margin-top:102px;
+	background: none;
+	
+}
+.title a { color: #575247; }
+.session {
+	color: #999;
+}
+.session a { color: #989F30; }
+#navigation a { color: #BEB7A9; }
+#navigation a:hover { color: #D1CABB; }
+.navhead, .navhead_blank {
+	border: 1px solid #8A8271;
+	color: #BEB7A9;
+	background-color: #FFF;
+	background-image: url(images/coffee_bg_navhead.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+	.navhead:hover, .navhead_blank:hover { border: 1px solid #9B9280; }
+.subnav {
+	background: #69655B;
+}
+.navbullet {
+	background: url('http://www.mm214.com/sweber/wdm3321/Religion/admin/images/coffee_navbullet.png') no-repeat;
+}
+.submenu li a { border-bottom: 1px solid #757168; }
+#copyrights {
+	background: #615C52 url('http://www.mm214.com/sweber/wdm3321/Religion/admin/images/coffee_splash.gif') no-repeat 8px;
+	color: #807A6F;
+}
+#copyrights a { color: #807A6F; }
+#content {
+	background: #545454;
+}
+	.box {
+		background: #fff url('http://www.mm214.com/sweber/wdm3321/Religion/admin/images/bg_box.gif') repeat-x top left;
+		border: 1px solid #fff;
+	}
+	
+tbody tr:hover td { background: #FDF9F3; }
+/* Code & Pre */
+code,
+pre {
+	border-left: 4px solid #C5BEB2;
+}
+/* Forms */
+.submit:hover,
+.button:hover {
+	color: #70A235;
+}
+/* Pagination */
+/* Class .current is used to mark current page; */
+.paginator li a:hover, .paginator li.current a {
+	color: #545454;
+	border: 1px solid #BEB7A9;
+	background: #F2EADD;
+}
