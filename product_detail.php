@@ -238,7 +238,7 @@ try {
             
             
         
-            <input type="hidden" name="productid" value="<?php echo $prodid; ?>">
+            <input type="hidden" name="product_id" value="<?php echo $prodid; ?>">
             <!-- Product actions -->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center d-flex justify-content-center">
@@ -297,43 +297,46 @@ try {
    
      <!-- addToCart on sale JS-->
     <script>
-        function addToCart(button) {
-            const productId = button.getAttribute('data-productid');
-            const quantity = 1;  // 假设每次添加数量为1
-        
-            fetch('add_to_cart.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `productid=${productId}&qty=${quantity}`
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.querySelector('.cart-count').textContent = data;  // 更新购物车的数量
-            })
-            .catch(error => console.error('Error:', error));
-        }
-        // 经常更新数据库的购物车数量，根据sessionID走
-        document.addEventListener('DOMContentLoaded', function() {
-    updateCartCount();
-});
+    function addToCart(button) {
+        const productId = button.getAttribute('data-productid');
+        const quantity = 1;  // 假设每次添加数量为1
+    
+        fetch('add_to_cart.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `productid=${productId}&qty=${quantity}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('.cart-count').textContent = data;  // 更新购物车的数量
+        })
+        .catch(error => console.error('Error:', error));
+        // 阻止默认表单提交行为
+        event.preventDefault();
+    }
 
-function updateCartCount() {
-    fetch(`get_cart_count.php?_=${new Date().getTime()}`, {
-        method: 'GET',
-        headers: {
-            'Cache-Control': 'no-cache'
-        }
-    })
-    .then(response => response.text())
-    .then(data => {
-        document.querySelector('.cart-count').textContent = data;
-    })
-    .catch(error => console.error('Error:', error));
-}
+    function updateCartCount() {
+        fetch(`get_cart_count.php?_=${new Date().getTime()}`, {
+            method: 'GET',
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('.cart-count').textContent = data;  // 在页面上显示最新的购物车数量
+        })
+        .catch(error => console.error('Error:', error));
+    }
 
-    </script>
+    // 当页面加载完成时调用更新购物车数量函数
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCartCount();
+    });
+</script>
+
 <script>
 function submitSearch() {
     var searchQuery = document.getElementById("searchQuery").value.trim();

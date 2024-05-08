@@ -37,6 +37,7 @@ if(isset($_POST['productid']) && isset($_POST['qty'])) {
     }
     echo $totalQty;
 } else {
+    echo "wrong";
     echo 0; // 发送错误或无操作的响应
 }
 ?>
